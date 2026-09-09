@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..700&family=Barlow+Condensed:wght@400;500;600&family=Barlow:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin:0; padding:0; background:#f0e7d6; }
+  * { box-sizing: border-box; }
+  a { color:#3d3025; text-decoration: none; }
+  a:hover { color:#6b5327; }
+  ::selection { background:#3d3025; color:#f0e7d6; }
+  main img { filter: sepia(0.42) saturate(0.85) contrast(1.03); }
+  @keyframes adlFade { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform:none; } }
+</style>
+</helmet>
+<div style="background:#f0e7d6; color:#241d16; font-family:Barlow, system-ui, sans-serif; min-height:100vh; overflow-x:hidden">
+
+  <header style="position:sticky; top:0; z-index:50; background:#3d3025; color:#f0e7d6; border-bottom:1px solid rgba(240,231,214,0.18)">
+    <div style="max-width:1240px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap">
+      <button onClick="{{ goHome }}" style="display:flex; align-items:center; gap:14px; background:none; border:0; padding:0; cursor:pointer; text-align:left; color:inherit">
+        <img src="uploads/pasted-1788882131704-0.png" alt="Blason des Arquebusiers du Lyonnais" style="width:52px; height:52px; object-fit:contain; flex:none; border-radius:50%" />
+        <span>
+          <span style="display:block; font-family:'Bodoni Moda', serif; font-size:19px; letter-spacing:0.01em; line-height:1.1">Les Arquebusiers du Lyonnais</span>
+          <span style="display:block; font-family:'Barlow Condensed', sans-serif; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:#6b5327; margin-top:3px">Tir aux armes anciennes · depuis 1966</span>
+        </span>
+      </button>
+      <nav style="display:flex; gap:4px; flex-wrap:wrap; font-family:'Barlow Condensed', sans-serif; font-size:15px; letter-spacing:0.13em; text-transform:uppercase">
+        <button onClick="{{ goHome }}" style="background:none; border:0; cursor:pointer; color:#f0e7d6; padding:8px 12px; font:inherit; letter-spacing:inherit; text-transform:inherit; opacity:0.78; position:relative" style-hover="opacity:1">Présentation
+          <sc-if value="{{ isHome }}"><span style="position:absolute; left:12px; right:12px; bottom:2px; height:2px; background:#9a7b4a"></span></sc-if>
+        </button>
+        <button onClick="{{ goStand }}" style="background:none; border:0; cursor:pointer; color:#f0e7d6; padding:8px 12px; font:inherit; letter-spacing:inherit; text-transform:inherit; opacity:0.78; position:relative" style-hover="opacity:1">Le stand
+          <sc-if value="{{ isStand }}"><span style="position:absolute; left:12px; right:12px; bottom:2px; height:2px; background:#9a7b4a"></span></sc-if>
+        </button>
+        <button onClick="{{ goClub }}" style="background:none; border:0; cursor:pointer; color:#f0e7d6; padding:8px 12px; font:inherit; letter-spacing:inherit; text-transform:inherit; opacity:0.78; position:relative" style-hover="opacity:1">Vie du club
+          <sc-if value="{{ isClub }}"><span style="position:absolute; left:12px; right:12px; bottom:2px; height:2px; background:#9a7b4a"></span></sc-if>
+        </button>
+        <button onClick="{{ goGalerie }}" style="background:none; border:0; cursor:pointer; color:#f0e7d6; padding:8px 12px; font:inherit; letter-spacing:inherit; text-transform:inherit; opacity:0.78; position:relative" style-hover="opacity:1">Galerie
+          <sc-if value="{{ isGalerie }}"><span style="position:absolute; left:12px; right:12px; bottom:2px; height:2px; background:#9a7b4a"></span></sc-if>
+        </button>
+        <button onClick="{{ goHistoire }}" style="background:none; border:0; cursor:pointer; color:#f0e7d6; padding:8px 12px; font:inherit; letter-spacing:inherit; text-transform:inherit; opacity:0.78; position:relative" style-hover="opacity:1">Les armes
+          <sc-if value="{{ isHistoire }}"><span style="position:absolute; left:12px; right:12px; bottom:2px; height:2px; background:#9a7b4a"></span></sc-if>
+        </button>
+        <button onClick="{{ goContact }}" style="background:#9a7b4a; border:0; cursor:pointer; color:#14140f; padding:8px 16px; margin-left:6px; font:inherit; letter-spacing:inherit; text-transform:inherit; font-weight:600" style-hover="background:#b39463">Nous rejoindre</button>
+      </nav>
+    </div>
+  </header>
+
+  <main key="{{ view }}" style="animation: adlFade 0.35s ease both">
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <section style="position:relative; background:#2a1f16; color:#f0e7d6; overflow:hidden">
+      <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x10000:format=jpg/path/sfe7efd9a3c78a44a/image/ibe862614109a559d/version/1747907285/image.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.28; filter:grayscale(0.35)" />
+      <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(42,31,22,0.96) 0%, rgba(42,31,22,0.72) 55%, rgba(42,31,22,0.38) 100%)"></div>
+      <div style="position:relative; max-width:1240px; margin:0 auto; padding:110px 24px 96px">
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:13px; color:#cbb083; margin:0 0 22px">Société de tir à l'arme ancienne · Rhône</p>
+        <h1 style="font-family:'Bodoni Moda', serif; font-weight:500; font-size:clamp(40px, 7vw, 82px); line-height:1.03; margin:0; max-width:16ch; text-wrap:balance">Le tir aux armes anciennes, depuis 1966.</h1>
+        <p style="font-size:clamp(17px,2vw,21px); line-height:1.6; max-width:56ch; margin:30px 0 0; color:rgba(240,231,214,0.86)">Fondé en 1966, le club des Arquebusiers du Lyonnais est spécialisé dans l'étude et le tir aux armes anciennes tirant à poudre noire.</p>
+        <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:40px; font-family:'Barlow Condensed', sans-serif; font-size:16px; letter-spacing:0.14em; text-transform:uppercase">
+          <button onClick="{{ goContact }}" style="background:#9a7b4a; color:#14140f; border:0; padding:14px 26px; cursor:pointer; font:inherit; letter-spacing:inherit; text-transform:inherit; font-weight:600" style-hover="background:#b39463">Visiter le stand</button>
+          <button onClick="{{ goHistoire }}" style="background:none; color:#f0e7d6; border:1px solid rgba(240,231,214,0.45); padding:14px 26px; cursor:pointer; font:inherit; letter-spacing:inherit; text-transform:inherit" style-hover="border-color:#6b5327; color:#cbb083">Être Arquebusiers</button>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:#241d16; color:#f0e7d6">
+      <div style="max-width:1240px; margin:0 auto; padding:0 24px; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr))">
+        <div style="padding:34px 0"><div style="font-family:'Bodoni Moda', serif; font-size:42px; line-height:1">1966</div><div style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.2em; text-transform:uppercase; font-size:12px; color:#cbb083; margin-top:6px">Année de fondation</div></div>
+        <div style="padding:34px 0"><div style="font-family:'Bodoni Moda', serif; font-size:42px; line-height:1">25 · 50 · 100 m</div><div style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.2em; text-transform:uppercase; font-size:12px; color:#cbb083; margin-top:6px">Pas de tir</div></div>
+        <div style="padding:34px 0"><div style="font-family:'Bodoni Moda', serif; font-size:42px; line-height:1">1346 → 1874</div><div style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.2em; text-transform:uppercase; font-size:12px; color:#cbb083; margin-top:6px">Cinq siècles de poudre noire</div></div>
+        <div style="padding:34px 0"><div style="font-family:'Bodoni Moda', serif; font-size:42px; line-height:1">FFT</div><div style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.2em; text-transform:uppercase; font-size:12px; color:#cbb083; margin-top:6px">Licence requise</div></div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:88px 24px; display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:56px; align-items:start">
+      <div>
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0 0 18px">Qui sommes-nous</p>
+        <h2 style="font-family:'Bodoni Moda', serif; font-weight:500; font-size:clamp(28px,3.4vw,40px); line-height:1.15; margin:0 0 24px; max-width:20ch">Des armes que l'on étudie autant que l'on tire.</h2>
+        <p style="font-size:18px; line-height:1.7; color:#3a3a33; margin:0 0 18px; max-width:52ch">Bombardes, arquebuses à rouet, platines à silex, fusils à percussion : entre la bombarde de Crécy en 1346 et le fusil Gras modèle 1874, cinq siècles d'invention mécanique nous ont laissé des objets d'une rare beauté. Ce sont ces armes qui sont l'objet de notre intérêt.</p>
+        <p style="font-size:18px; line-height:1.7; color:#3a3a33; margin:0 0 30px; max-width:52ch">Le club les remet en main sur ses pas de tir, dans le respect strict des règles de sécurité et de la réglementation française.</p>
+        <button onClick="{{ goHistoire }}" style="background:none; border:0; border-bottom:1px solid #9a7b4a; padding:0 0 4px; cursor:pointer; font-family:'Barlow Condensed', sans-serif; font-size:16px; letter-spacing:0.16em; text-transform:uppercase; color:#3d3025" style-hover="color:#6b5327">Lire le texte de G. Jullien</button>
+      </div>
+      <figure style="margin:0">
+        <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=687x10000:format=jpg/path/sfe7efd9a3c78a44a/image/ifd70702ebaf5e480/version/1389188090/image.jpg" alt="Kentucky Rifle" style="width:100%; display:block; border:1px solid rgba(26,26,23,0.14)" />
+        <figcaption style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.18em; text-transform:uppercase; font-size:12px; color:#6b6961; margin-top:10px">Kentucky Rifle</figcaption>
+      </figure>
+    </section>
+
+    <section style="background:#e3d8c1">
+      <div style="max-width:1240px; margin:0 auto; padding:78px 24px">
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0 0 30px">Trois pièces de la collection</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:32px">
+          <figure style="margin:0">
+            <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/sfe7efd9a3c78a44a/image/ifb0d986e1d3bb862/version/1420391025/image.jpg" alt="Arquebuse à rouet" style="width:100%; display:block; background:#f0e7d6" />
+            <figcaption style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:#4a4a42; margin-top:12px">Arquebuse à rouet, vers 1515–1525 <span style="color:#6b5327">(musée de l'Armée)</span></figcaption>
+          </figure>
+          <figure style="margin:0">
+            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=687x10000:format=jpg/path/sfe7efd9a3c78a44a/image/i45b76f1e598c9e0a/version/1388846550/image.jpg" alt="Modèle 1777 corrigé An IX" style="width:100%; display:block; background:#f0e7d6" />
+            <figcaption style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:#4a4a42; margin-top:12px">Mod. 1777 corrigé An IX</figcaption>
+          </figure>
+          <figure style="margin:0">
+            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=687x10000:format=jpg/path/sfe7efd9a3c78a44a/image/ia42bc73a809ba565/version/1393504911/image.jpg" alt="US Springfield modèle 1861" style="width:100%; display:block; background:#f0e7d6" />
+            <figcaption style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:#4a4a42; margin-top:12px">US Springfield Mod. 1861, cal. 58</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:88px 24px">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:2px; background:rgba(26,26,23,0.14); border:1px solid rgba(26,26,23,0.14)">
+        <button onClick="{{ goStand }}" style="background:#f0e7d6; border:0; cursor:pointer; text-align:left; padding:40px 32px; font:inherit; color:inherit" style-hover="background:#e3d8c1">
+          <span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.2em; text-transform:uppercase; font-size:12px; color:#6b5327">01</span>
+          <span style="display:block; font-family:'Bodoni Moda', serif; font-size:28px; margin:12px 0 10px">Le stand</span>
+          <span style="display:block; font-size:16px; line-height:1.6; color:#5a5850">Trois pas de tir, un club house, les horaires et les règles de sécurité.</span>
+        </button>
+        <button onClick="{{ goClub }}" style="background:#f0e7d6; border:0; cursor:pointer; text-align:left; padding:40px 32px; font:inherit; color:inherit" style-hover="background:#e3d8c1">
+          <span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.2em; text-transform:uppercase; font-size:12px; color:#6b5327">02</span>
+          <span style="display:block; font-family:'Bodoni Moda', serif; font-size:28px; margin:12px 0 10px">Vie du club</span>
+          <span style="display:block; font-size:16px; line-height:1.6; color:#5a5850">Actualités, journées de travail, repas, publications et archives.</span>
+        </button>
+        <button onClick="{{ goGalerie }}" style="background:#f0e7d6; border:0; cursor:pointer; text-align:left; padding:40px 32px; font:inherit; color:inherit" style-hover="background:#e3d8c1">
+          <span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.2em; text-transform:uppercase; font-size:12px; color:#6b5327">03</span>
+          <span style="display:block; font-family:'Bodoni Moda', serif; font-size:28px; margin:12px 0 10px">Galerie</span>
+          <span style="display:block; font-size:16px; line-height:1.6; color:#5a5850">Le stand, les pas de tir et les journées du club en photographies.</span>
+        </button>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isHistoire }}">
+  <div>
+    <section style="background:#3d3025; color:#f0e7d6">
+      <div style="max-width:1240px; margin:0 auto; padding:76px 24px 68px">
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#cbb083; margin:0 0 20px">Les armes</p>
+        <h1 style="font-family:'Bodoni Moda', serif; font-style:italic; font-weight:400; font-size:clamp(38px,6vw,68px); line-height:1.05; margin:0">Être Arquebusiers</h1>
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.2em; text-transform:uppercase; font-size:13px; color:rgba(240,231,214,0.7); margin:22px 0 0">Par G. Jullien</p>
+      </div>
+    </section>
+    <article style="max-width:1240px; margin:0 auto; padding:72px 24px 96px; display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:64px; align-items:start">
+      <div style="font-size:18.5px; line-height:1.78; color:#2c2c26">
+        <p style="margin:0 0 26px">La poudre fut inventée, dit-on, vers l'an mil, par les chinois. Elle était noire, parce que son principal composant était, et est toujours, le charbon de bois. Elle arriva en Europe au 14<sup>ème</sup> siècle et fut universellement utilisée jusqu'à la fin du 19<sup>ème</sup>. En 1884, le chimiste Français Paul Vieille inventa la poudre nitro-cellulosique, dite poudre B, ou encore poudre sans fumée. Trois fois plus puissante que la poudre noire, n'encrassant pas les mécanismes, elle fut à l'origine de l'avènement de l'armement moderne.</p>
+        <p style="margin:0 0 26px">Mais entre la bombarde de Crécy en 1346, et le fusil Gras modèle 1874, dernière arme règlementaire française à poudre noire, il y eu l'aventure de l'évolution des armes à feu. La fabuleuse histoire de ces inventeurs, fondeurs, forgerons, serruriers, horlogers, ébénistes, fourbisseurs, graveurs et ciseleurs, qui ont mis toute leur expérience et leur habileté pour construire des armes dont l'une des caractéristiques était souvent la beauté. Ce sont ces armes qui sont l'objet de notre intérêt.</p>
+        <p style="margin:0 0 26px">Les premières armes portatives qu'étaient les « bâtons à feu » furent assez vite suivies, vers 1450, par les armes à mèche, elles mêmes concurrencées, vers 1515, par les armes à rouet. Ces armes, toujours prêtes à faire feu pour peu que le rouet ait été remonté, libéraient leur utilisateur de la dangereuse et peu discrète servitude de la mèche. Raccourcies, elles donnèrent naissance au pistolet, l'arme du cavalier. Cependant, fragiles et onéreuses, ces armes ne furent jamais fabriquées en grand nombre. Ce fut peut être l'un de ces pistolet qui, entre les mains du baron de Vitry et sur ordre de Louis XIII, tua Concini, Maréchal d'Ancre, le 27 avril 1617.</p>
+        <p style="margin:0 0 26px">Puis vinrent les platines utilisant un silex frappant une batterie en acier. Moins fragiles que le rouet, moins chères à fabriquer, qu'elles soient à la Miquelet ou à Chenapan, elles durèrent jusque vers 1605/1610, date à laquelle Marin Bourgeois inventa la platine à silex dont la batterie était aussi le couvre bassinet, et qui remplaça petit à petit tous les autres systèmes. Relativement sure, son taux de ratés était d'environ 15%, elle fut utilisée sans partage jusqu'à l'invention, en 1818, de la capsule fulminante. Attribuée au français Prélat mais revendiquée par un américain et trois anglais, cette invention supprimait pratiquement les ratés et permettait une inflammation régulière de la charge.</p>
+        <p style="margin:0 0 26px">En 1841, Dreyse inventa le fusil à aiguille. Se chargeant par l'arrière avec une cartouche papier, ce système augmentait la cadence de tir et affranchissait le soldat de la dangereuse position debout, nécessaire au chargement de l'arme par l'avant. La culasse n'était pas très étanche. Alphonse Chassepot y remédia en 1866 en adoptant un joint de caoutchouc, comprimé par les gaz de propulsion. Vers la même époque la solution parfaite arriva sous la forme de l'étui métallique. Allié à l'invention de Paul Vieille, il n'a subi que des évolutions de détail et représente la quasi totalité des munitions actuelles.</p>
+        <p style="margin:0 0 26px">Je l'ai déjà dit, ces armes sont souvent belles. Elles nous racontent aussi l'Histoire. Une arquebuse à mèche japonaise pourra vous raconter la bataille de Nagashino en 1575, au cours de laquelle une armée de 3000 soldats à pieds, équipés de ces armes, vainquit la coalition de deux armée dotées de puissantes cavaleries. L'élégant fusil du Kentucky, vous parlera de la vie des trappeurs et de la guerre d'indépendance Américaine, ou son canon rayé permettait à sa petite balle de faire mouche à des distances ou le puissant Brown Bess qui lui était opposé était d'une totale imprécision. Le Springfield 1861 illustrera le déchirement de la guerre civile américaine et, si vous êtes assez fou pour vous y frotter, le Chassepot vous contera la bataille de Saint Privat, plus connue sous le nom de Gravelotte, Bazeilles et les onze dernières cartouches que les officiers survivants réclamèrent l'honneur de tirer.</p>
+        <p style="margin:0 0 26px">Et que pourra nous dire le 1777 ? Il fut l'arme de la révolution, des sans culotte. Modifié en l'An IX de la République, il fut, aux mains des soldats de l'Empire, l'outil de l'épopée napoléonienne, modifié à percussion selon l'ordonnance de 1842, puis rayé vers 1860, il fut transformé « à tabatière » selon le système 1867, participa a la défense de Paris pendant la guerre de 1870, et termina sa carrière entre les mains des gardes-champêtre, avant de faire le bonheur de chasseurs peu fortunés. Soit plus d'un siècle de service.</p>
+        <p style="margin:0 0 26px">Nous tirons ces armes quand nous avons la chance de les posséder. Elles nous rappellent la rudesse de ces époques, nous font partager et comprendre les difficultés de ceux qui les ont utilisées, servies doit-on dire !</p>
+        <blockquote style="margin:40px 0; padding:0 0 0 28px; border-left:2px solid #9a7b4a; font-family:'Bodoni Moda', serif; font-style:italic; font-size:23px; line-height:1.55; color:#3d3025">Charger et tirer un 1777 par grand froid avec un fort vent donne une toute petite idée de ce qu'ont vécu les soldats de la Grande Armée dans les plaines de Russie.</blockquote>
+        <p style="margin:0 0 26px">Parfois, dans le nuage de fumée blanche de la décharge, semble se dessiner la silhouette floue d'un homme de petite taille, coiffé d'un bicorne, vêtu d'une redingote, une main glissée entre deux boutons du gilet. La couleur de la redingote ?………... Grise.</p>
+        <p style="margin:0 0 26px">Les objets n'ont parait-il pas d'âme ! En ce qui concerne ce fusil, j'ai un doute.</p>
+        <p style="margin:0 0 26px">N'allez cependant pas croire que, parce que techniquement dépassées, ces armes sont des « arrosoirs ». En bon état, qu'elles soient d'épaule ou de poing, convenablement approvisionnées et servies, elles permettent des scores considérés comme étonnants par d'excellents tireurs habitués à des engins modernes. C'est seulement un peu plus difficile. Mais nous avons le privilège d'avoir en main des fragments d'HISTOIRE.</p>
+        <p style="margin:0 0 26px; font-family:'Bodoni Moda', serif; font-size:26px; color:#3d3025">C'est ça, être ARQUEBUSIERS.</p>
+        <p style="margin:0; font-family:'Barlow Condensed', sans-serif; letter-spacing:0.2em; text-transform:uppercase; font-size:13px; color:#6b6961">G. Jullien</p>
+      </div>
+      <aside style="display:grid; gap:34px; position:sticky; top:110px">
+        <figure style="margin:0">
+          <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/sfe7efd9a3c78a44a/image/ifb0d986e1d3bb862/version/1420391025/image.jpg" alt="Arquebuse à rouet" style="width:100%; display:block" />
+          <figcaption style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:#6b6961; margin-top:10px">Arquebuse à rouet, vers 1515–1525</figcaption>
+        </figure>
+        <figure style="margin:0">
+          <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=268x10000:format=jpg/path/sfe7efd9a3c78a44a/image/id537d7aad47866d3/version/1419867618/image.jpg" alt="Balles Minié calibre 58" style="width:100%; display:block" />
+          <figcaption style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:#6b6961; margin-top:10px">Balles Minié, cal. 58</figcaption>
+        </figure>
+      </aside>
+    </article>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isStand }}">
+  <div>
+    <section style="background:#3d3025; color:#f0e7d6">
+      <div style="max-width:1240px; margin:0 auto; padding:76px 24px 68px">
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#cbb083; margin:0 0 20px">Installations</p>
+        <h1 style="font-family:'Bodoni Moda', serif; font-weight:500; font-size:clamp(38px,6vw,64px); line-height:1.05; margin:0">Le stand</h1>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:64px 24px 0; display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:48px; align-items:start">
+      <div style="border-left:2px solid #9a7b4a; padding-left:26px">
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.24em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0 0 14px">Horaires d'entraînement</p>
+        <p style="font-family:'Bodoni Moda', serif; font-size:24px; line-height:1.4; margin:0 0 26px; color:#3d3025">Ouvert de 9h00 à 12h00 et de 14h00 à 18h00, sauf en cas de travaux.</p>
+        <div style="display:grid; gap:14px; font-size:16.5px; line-height:1.5; color:#3a3a33">
+          <div style="display:flex; justify-content:space-between; gap:20px; border-bottom:1px solid rgba(26,26,23,0.12); padding-bottom:12px"><span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#3d3025">Jours ouvrables</span><span>8h30 – 12h00 · 14h30 – 19h30</span></div>
+          <div style="display:flex; justify-content:space-between; gap:20px; border-bottom:1px solid rgba(26,26,23,0.12); padding-bottom:12px"><span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#3d3025">Samedi</span><span>9h00 – 12h00 · 15h00 – 19h00</span></div>
+          <div style="display:flex; justify-content:space-between; gap:20px; border-bottom:1px solid rgba(26,26,23,0.12); padding-bottom:12px"><span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#3d3025">Dimanche &amp; fériés</span><span>10h00 – 12h00</span></div>
+        </div>
+        <p style="font-size:15px; line-height:1.6; color:#6b6961; margin:18px 0 0">Le portail ne pourra être déclenché qu'une demi-heure avant les heures d'ouverture.</p>
+      </div>
+      <div style="background:#241d16; color:#f0e7d6; padding:34px 32px">
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.24em; text-transform:uppercase; font-size:12px; color:#cbb083; margin:0 0 18px">Sécurité et accès</p>
+        <p style="font-size:16.5px; line-height:1.7; margin:0 0 16px; color:rgba(240,231,214,0.88)">Il ne peut être utilisé que pour les activités sportives auxquelles il est destiné. Seuls les adhérents et/ou les invités titulaires de la licence FFT et à jour de leur cotisation sont autorisés à y pratiquer le tir, dans le respect des lois et règlements en vigueur.</p>
+        <p style="font-size:16.5px; line-height:1.7; margin:0; color:rgba(240,231,214,0.88)">Bien que les accidents y soient rares, le tir est un sport potentiellement dangereux. En conséquence, il est déconseillé de pratiquer le tir seul sur le stand. Le respect scrupuleux des règles de sécurité affichées à tous les pas de tir est le meilleur moyen d'éviter les accidents.</p>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:64px 24px 0">
+      <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0 0 26px">Plan d'accès</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:0; border:1px solid rgba(26,26,23,0.18)">
+        <div style="padding:34px 32px">
+          <p style="font-family:'Bodoni Moda', serif; font-size:24px; color:#3d3025; margin:0 0 16px">Venir au stand</p>
+          <p style="font-size:16.5px; line-height:1.7; color:#3a3a33; margin:0 0 18px">Adresse à compléter — région lyonnaise. Prévenez-nous de votre venue : le portail n'est déclenchable qu'une demi-heure avant les heures d'ouverture.</p>
+          <button onClick="{{ goContact }}" style="background:none; border:0; border-bottom:1px solid #9a7b4a; padding:0 0 4px; cursor:pointer; font-family:'Barlow Condensed', sans-serif; font-size:15px; letter-spacing:0.16em; text-transform:uppercase; color:#3d3025" style-hover="color:#6b5327">Nous contacter</button>
+        </div>
+        <div style="min-height:250px; background:#e3d8c1; display:grid; place-items:center; border-left:1px solid rgba(26,26,23,0.18)">
+          <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.22em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0; text-align:center; padding:20px">Carte à insérer<br />une fois l'adresse connue</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:64px 24px 24px">
+      <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0 0 26px">Vue générale &amp; club house</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:26px">
+        <figure style="margin:0"><img src="https://image.jimcdn.com/app/cms/image/transf/dimension=687x10000:format=jpg/path/sfe7efd9a3c78a44a/image/i51c007416555340e/version/1395695803/image.jpg" alt="Vue générale du stand" style="width:100%; height:280px; object-fit:cover; display:block" /><figcaption style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:#6b6961; margin-top:10px">Vue générale</figcaption></figure>
+        <figure style="margin:0"><img src="https://image.jimcdn.com/app/cms/image/transf/dimension=687x10000:format=jpg/path/sfe7efd9a3c78a44a/image/i09512b65971335b1/version/1385997255/image.jpg" alt="Club house" style="width:100%; height:280px; object-fit:cover; display:block" /><figcaption style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:#6b6961; margin-top:10px">Club house</figcaption></figure>
+        <figure style="margin:0"><img src="https://image.jimcdn.com/app/cms/image/transf/none/path/sfe7efd9a3c78a44a/image/i7e098f2d26660071/version/1395695847/image.jpg" alt="Club house vue de face" style="width:100%; height:280px; object-fit:cover; display:block" /><figcaption style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:#6b6961; margin-top:10px">Club house, vue de face</figcaption></figure>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:56px 24px 96px">
+      <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0 0 26px">Les pas de tir</p>
+      <div style="display:grid; gap:2px; background:rgba(26,26,23,0.14); border:1px solid rgba(26,26,23,0.14)">
+        <div style="background:#f0e7d6; display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:0">
+          <div style="padding:32px"><div style="font-family:'Bodoni Moda', serif; font-size:32px; color:#3d3025">25 m — pas de tir n°1</div><p style="font-size:16px; line-height:1.6; color:#5a5850; margin:12px 0 0">Pistolets et revolvers à poudre noire, tir de précision.</p></div>
+          <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/sfe7efd9a3c78a44a/image/id2de1d547a573759/version/1479747799/image.jpg" alt="Pas de tir 25 m n°1" style="width:100%; height:100%; min-height:240px; object-fit:cover; display:block" />
+        </div>
+        <div style="background:#f0e7d6; display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:0">
+          <div style="padding:32px"><div style="font-family:'Bodoni Moda', serif; font-size:32px; color:#3d3025">25 m — pas de tir n°2</div><p style="font-size:16px; line-height:1.6; color:#5a5850; margin:12px 0 0">Second poste couvert, ouvert en 2018.</p></div>
+          <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=682x2048:format=jpg/path/sfe7efd9a3c78a44a/image/i75a2e5dc9ab9d86b/version/1524664865/image.jpg" alt="Pas de tir 25 m n°2" style="width:100%; height:100%; min-height:240px; object-fit:cover; display:block" />
+        </div>
+        <div style="background:#f0e7d6; display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:0">
+          <div style="padding:32px"><div style="font-family:'Bodoni Moda', serif; font-size:32px; color:#3d3025">50 m</div><p style="font-size:16px; line-height:1.6; color:#5a5850; margin:12px 0 0">Armes d'épaule, tir couché et debout.</p></div>
+          <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/sfe7efd9a3c78a44a/image/ic64b7a36735488f7/version/1487840712/image.jpg" alt="Pas de tir 50 m" style="width:100%; height:100%; min-height:240px; object-fit:cover; display:block" />
+        </div>
+        <div style="background:#f0e7d6; display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:0">
+          <div style="padding:32px"><div style="font-family:'Bodoni Moda', serif; font-size:32px; color:#3d3025">100 m</div><p style="font-size:16px; line-height:1.6; color:#5a5850; margin:12px 0 0">Grande distance. Tirs du samedi aux armes longues à poudre moderne suspendus jusqu'à nouvel ordre.</p></div>
+          <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/sfe7efd9a3c78a44a/image/i8e5529cf74b476dd/version/1487840709/image.jpg" alt="Pas de tir 100 m" style="width:100%; height:100%; min-height:240px; object-fit:cover; display:block" />
+        </div>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isClub }}">
+  <div>
+    <section style="background:#3d3025; color:#f0e7d6">
+      <div style="max-width:1240px; margin:0 auto; padding:76px 24px 68px">
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#cbb083; margin:0 0 20px">Actualités &amp; archives</p>
+        <h1 style="font-family:'Bodoni Moda', serif; font-weight:500; font-size:clamp(38px,6vw,64px); line-height:1.05; margin:0">Vie du club</h1>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:64px 24px 0">
+      <div style="border:1px solid #9a7b4a; background:#f8f1e2; padding:34px 32px">
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.24em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0 0 12px">Important · en vigueur depuis le 20 février 2021</p>
+        <h2 style="font-family:'Bodoni Moda', serif; font-weight:500; font-size:28px; margin:0 0 18px; color:#3d3025">Nouveau règlement et nouveaux horaires</h2>
+        <p style="font-size:17px; line-height:1.7; color:#3a3a33; margin:0 0 14px; max-width:70ch">Après notre réunion avec Mr le maire et nos opposants riverains, faisant suite aux nuisances sonores, les tirs du samedi aux armes longues à poudre moderne sont suspendus jusqu'à nouvel ordre.</p>
+        <p style="font-size:17px; line-height:1.7; color:#3a3a33; margin:0 0 14px; max-width:70ch">Les modalités du tir à l'arme longue à poudre sans fumée seront revues quand les travaux d'insonorisation du pas de tir 100 m auront été effectués. Les contrevenants seront exclus définitivement du stand des arquebusiers.</p>
+        <p style="font-size:17px; line-height:1.7; color:#3a3a33; margin:0 0 20px; max-width:70ch">Vu le contexte actuel je vous demande de respecter impérativement ces nouveaux horaires.</p>
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.16em; text-transform:uppercase; font-size:13px; color:#6b6961; margin:0">Bernard Million — Président d'association</p>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:72px 24px 0">
+      <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0 0 8px">9 septembre 2023</p>
+      <h2 style="font-family:'Bodoni Moda', serif; font-weight:500; font-size:clamp(26px,3vw,36px); margin:0 0 26px; color:#3d3025">Les Arquebusiers à table</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:20px">
+        <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/i19203088342da47b/version/1694520486/image.jpg" alt="Repas du club" style="width:100%; height:220px; object-fit:cover; display:block" />
+        <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/id60c8a4954410f42/version/1694520486/image.jpg" alt="Repas du club" style="width:100%; height:220px; object-fit:cover; display:block" />
+        <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/i3d0608256759c5a5/version/1694520486/image.jpg" alt="Repas du club" style="width:100%; height:220px; object-fit:cover; display:block" />
+        <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/i7760718c99995214/version/1694520486/image.jpg" alt="Repas du club" style="width:100%; height:220px; object-fit:cover; display:block" />
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:64px 24px 0">
+      <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0 0 8px">Janvier 2024</p>
+      <h2 style="font-family:'Bodoni Moda', serif; font-weight:500; font-size:clamp(26px,3vw,36px); margin:0 0 26px; color:#3d3025">Les arquebusiers au travail</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:20px">
+        <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/ifdf69c6f89fb6cee/version/1707399173/image.jpg" alt="Journée de travail" style="width:100%; height:220px; object-fit:cover; display:block" />
+        <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/i84168669e19d959e/version/1707399173/image.jpg" alt="Journée de travail" style="width:100%; height:220px; object-fit:cover; display:block" />
+        <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/i29d64cd99c2ec39c/version/1707399173/image.jpg" alt="Journée de travail" style="width:100%; height:220px; object-fit:cover; display:block" />
+        <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/i59108e1142625fdd/version/1707399173/image.jpg" alt="Journée de travail" style="width:100%; height:220px; object-fit:cover; display:block" />
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:72px 24px 0; display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:48px; align-items:start">
+      <div>
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0 0 20px">Publications</p>
+        <div style="display:grid; gap:2px; background:rgba(26,26,23,0.14); border:1px solid rgba(26,26,23,0.14)">
+          <a href="https://arquebusiers-du-lyonnais.jimdofree.com/app/download/10891862397/Les+Chevaliers+de+l%27Arquebuse+-+p1+.pdf?t=1747907218" style="background:#f0e7d6; padding:20px 24px; display:flex; justify-content:space-between; gap:20px; align-items:baseline" style-hover="background:#e3d8c1"><span style="font-size:17px; color:#3d3025">Les Chevaliers de l'Arquebuse — partie 1</span><span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:#6b6961; flex:none">PDF · 6,4 Mo</span></a>
+          <a href="https://arquebusiers-du-lyonnais.jimdofree.com/app/download/10891862997/Les+Chevaliers+de+l%27Arquebuse+-+p2-.pdf?t=1747907218" style="background:#f0e7d6; padding:20px 24px; display:flex; justify-content:space-between; gap:20px; align-items:baseline" style-hover="background:#e3d8c1"><span style="font-size:17px; color:#3d3025">Les Chevaliers de l'Arquebuse — partie 2</span><span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:#6b6961; flex:none">PDF · 7,2 Mo</span></a>
+          <a href="https://arquebusiers-du-lyonnais.jimdofree.com/app/download/10891863397/Les+Chevaliers+de+l%27Arquebuse-+p3-.pdf?t=1747907218" style="background:#f0e7d6; padding:20px 24px; display:flex; justify-content:space-between; gap:20px; align-items:baseline" style-hover="background:#e3d8c1"><span style="font-size:17px; color:#3d3025">Les Chevaliers de l'Arquebuse — partie 3</span><span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:#6b6961; flex:none">PDF · 5,5 Mo</span></a>
+          <a href="https://arquebusiers-du-lyonnais.jimdofree.com/app/download/10869166797/Les+E%CC%81chos+de+l%27Arquebuse+-+%28Avec+logo%29+-+copie.pdf?t=1747907218" style="background:#f0e7d6; padding:20px 24px; display:flex; justify-content:space-between; gap:20px; align-items:baseline" style-hover="background:#e3d8c1"><span style="font-size:17px; color:#3d3025">Les Échos de l'Arquebuse</span><span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:#6b6961; flex:none">PDF · 101 Ko</span></a>
+        </div>
+      </div>
+      <figure style="margin:0">
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0 0 20px">Archives</p>
+        <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=687x10000:format=jpg/path/sfe7efd9a3c78a44a/image/iff01ec1bf83caac1/version/1635862358/image.jpg" alt="ADF à Chambéry, 1979" style="width:100%; display:block" />
+        <figcaption style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:#6b6961; margin-top:10px">1979 : ADF à Chambéry</figcaption>
+      </figure>
+    </section>
+
+    <sc-if value="{{ showMemoriam }}" hint-placeholder-val="{{ true }}">
+    <section style="max-width:1240px; margin:72px auto 0; padding:56px 24px 96px; border-top:1px solid rgba(26,26,23,0.14)">
+      <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0 0 30px">In memoriam</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:32px; max-width:720px">
+        <figure style="margin:0"><img src="https://image.jimcdn.com/app/cms/image/transf/dimension=687x10000:format=jpg/path/sfe7efd9a3c78a44a/image/id5c4db15d43e2f8f/version/1694520958/image.jpg" alt="Guy Biadatti" style="width:100%; display:block" /><figcaption style="font-family:'Bodoni Moda', serif; font-size:20px; color:#3d3025; margin-top:12px">Guy Biadatti</figcaption></figure>
+        <figure style="margin:0"><img src="https://image.jimcdn.com/app/cms/image/transf/dimension=687x10000:format=jpg/path/sfe7efd9a3c78a44a/image/i49fb354ab95421a3/version/1667405787/image.jpg" alt="René Jullien" style="width:100%; display:block" /><figcaption style="font-family:'Bodoni Moda', serif; font-size:20px; color:#3d3025; margin-top:12px">René Jullien</figcaption></figure>
+      </div>
+    </section>
+    </sc-if>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isContact }}">
+  <div>
+    <section style="background:#3d3025; color:#f0e7d6">
+      <div style="max-width:1240px; margin:0 auto; padding:76px 24px 68px">
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#cbb083; margin:0 0 20px">Nous rejoindre</p>
+        <h1 style="font-family:'Bodoni Moda', serif; font-weight:500; font-size:clamp(38px,6vw,64px); line-height:1.05; margin:0">Contact</h1>
+        <p style="font-size:19px; line-height:1.6; max-width:52ch; margin:26px 0 0; color:rgba(240,231,214,0.86)">Le club accueille les tireurs titulaires d'une licence FFT ainsi que les curieux qui souhaitent découvrir le tir aux armes anciennes. Écrivez-nous avant votre venue.</p>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:64px 24px 96px; display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:56px; align-items:start">
+      <form onSubmit="{{ onSubmit }}" style="display:grid; gap:22px">
+        <label style="display:grid; gap:8px">
+          <span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.2em; text-transform:uppercase; font-size:12px; color:#3d3025">Nom et prénom</span>
+          <input type="text" required="" style="border:1px solid rgba(26,26,23,0.25); background:#f8f1e2; padding:13px 14px; font-family:Barlow, sans-serif; font-size:16px; color:#241d16" style-focus="outline:none; border-color:#6b5327" />
+        </label>
+        <label style="display:grid; gap:8px">
+          <span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.2em; text-transform:uppercase; font-size:12px; color:#3d3025">Courriel</span>
+          <input type="email" required="" style="border:1px solid rgba(26,26,23,0.25); background:#f8f1e2; padding:13px 14px; font-family:Barlow, sans-serif; font-size:16px; color:#241d16" style-focus="outline:none; border-color:#6b5327" />
+        </label>
+        <label style="display:grid; gap:8px">
+          <span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.2em; text-transform:uppercase; font-size:12px; color:#3d3025">Votre situation</span>
+          <select style="border:1px solid rgba(26,26,23,0.25); background:#f8f1e2; padding:13px 14px; font-family:Barlow, sans-serif; font-size:16px; color:#241d16" style-focus="outline:none; border-color:#6b5327">
+            <option>Je suis licencié FFT</option>
+            <option>Je souhaite découvrir le tir aux armes anciennes</option>
+            <option>Je représente une association</option>
+            <option>Autre</option>
+          </select>
+        </label>
+        <label style="display:grid; gap:8px">
+          <span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.2em; text-transform:uppercase; font-size:12px; color:#3d3025">Message</span>
+          <textarea rows="6" style="border:1px solid rgba(26,26,23,0.25); background:#f8f1e2; padding:13px 14px; font-family:Barlow, sans-serif; font-size:16px; color:#241d16; resize:vertical" style-focus="outline:none; border-color:#6b5327"></textarea>
+        </label>
+        <div>
+          <button type="submit" style="background:#3d3025; color:#f0e7d6; border:0; padding:15px 30px; cursor:pointer; font-family:'Barlow Condensed', sans-serif; font-size:16px; letter-spacing:0.16em; text-transform:uppercase; font-weight:600" style-hover="background:#9a7b4a; color:#14140f">Envoyer</button>
+        </div>
+        <sc-if value="{{ sent }}"><p style="margin:0; font-size:16px; color:#3d3025; border-left:2px solid #9a7b4a; padding-left:14px">Message envoyé. Nous vous répondrons rapidement.</p></sc-if>
+      </form>
+
+      <div style="display:grid; gap:34px">
+        <div style="background:#241d16; color:#f0e7d6; padding:32px">
+          <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.24em; text-transform:uppercase; font-size:12px; color:#cbb083; margin:0 0 16px">Le stand</p>
+          <p style="font-size:17px; line-height:1.7; margin:0; color:rgba(240,231,214,0.88)">Adresse à compléter<br />Région lyonnaise</p>
+          <p style="font-size:15px; line-height:1.6; margin:16px 0 0; color:rgba(240,231,214,0.6)">Le portail est déclenchable une demi-heure avant l'ouverture.</p>
+        </div>
+        <div style="border:1px solid rgba(26,26,23,0.18); padding:32px">
+          <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.24em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0 0 16px">Adhésion</p>
+          <p style="font-size:17px; line-height:1.7; color:#3a3a33; margin:0">La pratique du tir sur le stand est réservée aux adhérents et invités titulaires de la licence FFT et à jour de leur cotisation.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isGalerie }}">
+  <div>
+    <section style="background:#3d3025; color:#f0e7d6">
+      <div style="max-width:1240px; margin:0 auto; padding:76px 24px 68px">
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#cbb083; margin:0 0 20px">Photographies du club</p>
+        <h1 style="font-family:'Bodoni Moda', serif; font-weight:500; font-size:clamp(38px,6vw,64px); line-height:1.05; margin:0">Galerie</h1>
+      </div>
+    </section>
+    <section style="max-width:1240px; margin:0 auto; padding:56px 24px 96px">
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:18px">
+        <sc-for list="{{ gallery }}" as="photo">
+          <button onClick="{{ photo.open }}" style="border:0; padding:0; background:#e3d8c1; cursor:pointer; display:block; position:relative; overflow:hidden; min-height:190px" style-hover="opacity:0.88">
+            <sc-if value="{{ photo.src }}">
+              <img src="{{ photo.src }}" alt="{{ photo.cap }}" style="width:100%; height:190px; object-fit:cover; display:block" />
+            </sc-if>
+          </button>
+        </sc-for>
+      </div>
+    </section>
+    <sc-if value="{{ lightbox }}">
+      <div onClick="{{ closeLightbox }}" style="position:fixed; inset:0; z-index:100; background:rgba(36,27,19,0.94); display:grid; place-items:center; padding:40px; cursor:zoom-out">
+        <img src="{{ lightbox }}" alt="" style="max-width:100%; max-height:88vh; object-fit:contain; display:block" />
+      </div>
+    </sc-if>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isPartenaires }}">
+  <div>
+    <section style="background:#3d3025; color:#f0e7d6">
+      <div style="max-width:1240px; margin:0 auto; padding:76px 24px 68px">
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#cbb083; margin:0 0 20px">Réseau</p>
+        <h1 style="font-family:'Bodoni Moda', serif; font-weight:500; font-size:clamp(38px,6vw,64px); line-height:1.05; margin:0">Associations partenaires</h1>
+      </div>
+    </section>
+    <section style="max-width:1240px; margin:0 auto; padding:64px 24px 96px; display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:48px; align-items:start">
+      <div>
+        <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.3em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0 0 18px">Épreuves MLAIC (version FFT)</p>
+        <p style="font-size:17px; line-height:1.7; color:#3a3a33; max-width:58ch; margin:0 0 26px">Le synoptique des épreuves de tir aux armes anciennes reconnues par la Fédération, et la liste des épreuves ADF.</p>
+        <div style="display:grid; gap:2px; background:rgba(26,26,23,0.14); border:1px solid rgba(26,26,23,0.14)">
+          <a href="https://arquebusiers-du-lyonnais.jimdofree.com/app/download/10242863797/synoptique_mlaic_dec_2010.pdf?t=1629715704" style="background:#f0e7d6; padding:20px 24px; display:flex; justify-content:space-between; gap:20px; align-items:baseline" style-hover="background:#e3d8c1"><span style="font-size:17px; color:#3d3025">Synoptique MLAIC — décembre 2010</span><span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:#6b6961; flex:none">PDF · 256 Ko</span></a>
+          <a href="https://arquebusiers-du-lyonnais.jimdofree.com/app/download/10242886597/Epreuves+ADF.jpg?t=1629715583" style="background:#f0e7d6; padding:20px 24px; display:flex; justify-content:space-between; gap:20px; align-items:baseline" style-hover="background:#e3d8c1"><span style="font-size:17px; color:#3d3025">Épreuves ADF</span><span style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:#6b6961; flex:none">JPG · 270 Ko</span></a>
+        </div>
+        <div style="border:1px dashed rgba(26,26,23,0.3); padding:26px; background:#f8f1e2; margin-top:32px">
+          <p style="font-family:'Barlow Condensed', sans-serif; letter-spacing:0.22em; text-transform:uppercase; font-size:12px; color:#6b5327; margin:0 0 12px">Emplacement à remplir</p>
+          <p style="font-size:16.5px; line-height:1.7; color:#5a5850; margin:0">Donnez-moi la liste des associations partenaires et leurs liens : j'en fais un annuaire à cet endroit.</p>
+        </div>
+      </div>
+      <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/sfe7efd9a3c78a44a/image/i36bee63819f13cbd/version/1629715452/image.jpg" alt="Épreuves MLAIC" style="width:100%; display:block; border:1px solid rgba(26,26,23,0.14)" />
+    </section>
+  </div>
+  </sc-if>
+
+  </main>
+
+  <footer style="background:#2a1f16; color:rgba(240,231,214,0.72)">
+    <div style="max-width:1240px; margin:0 auto; padding:60px 24px 40px; display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:40px">
+      <div>
+        <img src="uploads/pasted-1788882131704-0.png" alt="Blason des Arquebusiers du Lyonnais" style="width:88px; height:88px; object-fit:contain; display:block; margin:0 0 18px; border-radius:50%" />
+        <div style="font-family:'Bodoni Moda', serif; font-size:22px; color:#f0e7d6">Les Arquebusiers du Lyonnais</div>
+        <p style="font-size:15px; line-height:1.7; margin:14px 0 0; max-width:34ch">Société de tir à l'arme ancienne fondée en 1966. Étude et tir des armes à poudre noire.</p>
+      </div>
+      <div style="display:grid; gap:10px; align-content:start; font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:14px">
+        <span style="color:#cbb083">Le site</span>
+        <button onClick="{{ goHome }}" style="background:none; border:0; padding:0; cursor:pointer; color:inherit; font:inherit; letter-spacing:inherit; text-transform:inherit; text-align:left" style-hover="color:#f0e7d6">Présentation</button>
+        <button onClick="{{ goStand }}" style="background:none; border:0; padding:0; cursor:pointer; color:inherit; font:inherit; letter-spacing:inherit; text-transform:inherit; text-align:left" style-hover="color:#f0e7d6">Le stand</button>
+        <button onClick="{{ goClub }}" style="background:none; border:0; padding:0; cursor:pointer; color:inherit; font:inherit; letter-spacing:inherit; text-transform:inherit; text-align:left" style-hover="color:#f0e7d6">Vie du club</button>
+      </div>
+      <div style="display:grid; gap:10px; align-content:start; font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:14px">
+        <span style="color:#cbb083">Ressources</span>
+        <button onClick="{{ goHistoire }}" style="background:none; border:0; padding:0; cursor:pointer; color:inherit; font:inherit; letter-spacing:inherit; text-transform:inherit; text-align:left" style-hover="color:#f0e7d6">Être Arquebusiers</button>
+        <button onClick="{{ goPartenaires }}" style="background:none; border:0; padding:0; cursor:pointer; color:inherit; font:inherit; letter-spacing:inherit; text-transform:inherit; text-align:left" style-hover="color:#f0e7d6">Associations partenaires</button>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(240,231,214,0.15)">
+      <div style="max-width:1240px; margin:0 auto; padding:20px 24px; font-family:'Barlow Condensed', sans-serif; letter-spacing:0.14em; text-transform:uppercase; font-size:12px; color:rgba(240,231,214,0.5)">© Les Arquebusiers du Lyonnais</div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showMemoriam&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Contenu&quot;}}">
+class Component extends DCLogic {
+  state = { view: 'home', sent: false, lightbox: null };
+  go(view) {
+    this.setState({ view, sent: false, lightbox: null });
+    if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+  renderVals() {
+    const v = this.state.view;
+    return {
+      view: v,
+      isHome: v === 'home',
+      isStand: v === 'stand',
+      isClub: v === 'club',
+      isHistoire: v === 'histoire',
+      isContact: v === 'contact',
+      isPartenaires: v === 'partenaires',
+      isGalerie: v === 'galerie',
+      goPartenaires: () => this.go('partenaires'),
+      goGalerie: () => this.go('galerie'),
+      lightbox: this.state.lightbox,
+      closeLightbox: () => this.setState({ lightbox: null }),
+      openLightbox: (src) => () => this.setState({ lightbox: src }),
+      gallery: this.galleryPhotos().map(p => ({ ...p, open: () => this.setState({ lightbox: p.src }) })),
+      ...this.otherVals()
+    };
+  }
+  galleryPhotos() {
+    return [
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=687x10000:format=jpg/path/sfe7efd9a3c78a44a/image/i51c007416555340e/version/1395695803/image.jpg', cap: 'Vue générale du stand' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=687x10000:format=jpg/path/sfe7efd9a3c78a44a/image/i09512b65971335b1/version/1385997255/image.jpg', cap: 'Club house' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/none/path/sfe7efd9a3c78a44a/image/i7e098f2d26660071/version/1395695847/image.jpg', cap: 'Club house, vue de face' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/none/path/sfe7efd9a3c78a44a/image/id2de1d547a573759/version/1479747799/image.jpg', cap: 'Pas de tir 25 m n°1' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=682x2048:format=jpg/path/sfe7efd9a3c78a44a/image/i75a2e5dc9ab9d86b/version/1524664865/image.jpg', cap: 'Pas de tir 25 m n°2' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=682x2048:format=jpg/path/sfe7efd9a3c78a44a/image/i111e287c2b876117/version/1524664866/image.jpg', cap: 'Pas de tir 25 m n°2' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/none/path/sfe7efd9a3c78a44a/image/ic64b7a36735488f7/version/1487840712/image.jpg', cap: 'Pas de tir 50 m' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/none/path/sfe7efd9a3c78a44a/image/i8e5529cf74b476dd/version/1487840709/image.jpg', cap: 'Pas de tir 100 m' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/i19203088342da47b/version/1694520486/image.jpg', cap: 'Repas du club, septembre 2023' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/id60c8a4954410f42/version/1694520486/image.jpg', cap: 'Repas du club, septembre 2023' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/i3d0608256759c5a5/version/1694520486/image.jpg', cap: 'Repas du club, septembre 2023' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/i7760718c99995214/version/1694520486/image.jpg', cap: 'Repas du club, septembre 2023' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/ifdf69c6f89fb6cee/version/1707399173/image.jpg', cap: 'Journée de travail, janvier 2024' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/i84168669e19d959e/version/1707399173/image.jpg', cap: 'Journée de travail, janvier 2024' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/i29d64cd99c2ec39c/version/1707399173/image.jpg', cap: 'Journée de travail, janvier 2024' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sfe7efd9a3c78a44a/image/i59108e1142625fdd/version/1707399173/image.jpg', cap: 'Journée de travail, janvier 2024' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=687x10000:format=jpg/path/sfe7efd9a3c78a44a/image/i9f83a2b188a4595c/version/1577557719/image.jpg', cap: 'Challenge Bernard Brocard, 2019' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=687x10000:format=jpg/path/sfe7efd9a3c78a44a/image/i8aaa94038a79e2c6/version/1580384506/image.jpg', cap: 'Challenge Bernard Brocard, 2019' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=687x10000:format=jpg/path/sfe7efd9a3c78a44a/image/i86b3367f99f4d0a2/version/1580384556/image.jpg', cap: 'Challenge Bernard Brocard, 2019' },
+        { src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=687x10000:format=jpg/path/sfe7efd9a3c78a44a/image/iff01ec1bf83caac1/version/1635862358/image.jpg', cap: '1979 : ADF à Chambéry' }
+    ];
+  }
+  otherVals() {
+    return {
+      showMemoriam: this.props.showMemoriam ?? true,
+      sent: this.state.sent,
+      goHome: () => this.go('home'),
+      goStand: () => this.go('stand'),
+      goClub: () => this.go('club'),
+      goHistoire: () => this.go('histoire'),
+      goContact: () => this.go('contact'),
+      onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
